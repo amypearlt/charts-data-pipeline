@@ -1,5 +1,6 @@
 CREATE SCHEMA staging;
 GO
+
 CREATE TABLE staging.charts (
     week DATE NOT NULL,
     position INT NOT NULL,

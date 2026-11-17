@@ -1,25 +1,30 @@
 USE charts;
 GO
+
 CREATE TABLE dbo.Artist (
     artist_id INT IDENTITY(1,1) PRIMARY KEY,
     name NVARCHAR(250) NOT NULL
 );
 GO
+
 CREATE TABLE dbo.Label (
     label_id INT IDENTITY(1,1) PRIMARY KEY,
     name NVARCHAR(100) NOT NULL
 );
 GO
+
 CREATE TABLE dbo.Genre (
     genre_id INT IDENTITY(1,1) PRIMARY KEY,
     name NVARCHAR(100) NOT NULL UNIQUE
 );
 GO
+
 CREATE TABLE dbo.Style (
     style_id INT IDENTITY(1,1) PRIMARY KEY,
     name NVARCHAR(100) NOT NULL UNIQUE
 );
 GO
+
 CREATE TABLE dbo.Song (
     song_id INT IDENTITY(1,1) PRIMARY KEY,
     name NVARCHAR(500) NOT NULL,
@@ -27,6 +32,7 @@ CREATE TABLE dbo.Song (
     FOREIGN KEY (artist_id) REFERENCES dbo.Artist(artist_id)
 );
 GO
+
 CREATE TABLE dbo.SongGenre (
     song_id INT,
     genre_id INT,
@@ -35,6 +41,7 @@ CREATE TABLE dbo.SongGenre (
     FOREIGN KEY (genre_id) REFERENCES dbo.Genre(genre_id)
 );
 GO
+
 CREATE TABLE dbo.SongStyle (
     song_id INT,
     style_id INT,
@@ -43,6 +50,7 @@ CREATE TABLE dbo.SongStyle (
     FOREIGN KEY (style_id) REFERENCES dbo.Style(style_id)
 );
 GO
+
 CREATE TABLE dbo.Entry (
     entry_id INT IDENTITY(1,1) PRIMARY KEY,
     week DATE NOT NULL,
